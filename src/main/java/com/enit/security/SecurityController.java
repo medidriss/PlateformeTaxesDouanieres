@@ -28,60 +28,60 @@ import com.enit.entites.User;
 import com.enit.metiers.UserMetier;
 
 @Controller
- public class SecurityController {
-		@Autowired
-	    private UserMetier userMetier;
-	
-	 @Autowired
-		private PasswordEncoder passwordEncoder;
-		@RequestMapping(value = {"/",}, method = RequestMethod.GET)
-		public String home() {
-			
-			return "home";
-		}
-		@RequestMapping(value = {"/home",}, method = RequestMethod.GET)
-		public String homeurl() {
-			
-			return "redirect:/";
-		}
-		@RequestMapping(value="/login",method=RequestMethod.GET)
-		public String login(Model model) {
-			return "login";
-		}
-  
-		@RequestMapping(value = "/accounts/new", method = RequestMethod.GET)
-		public ModelAndView createAccountForm() {
-			
-			return new ModelAndView("signup","user",new User());
-		}
-		
-		@RequestMapping(value = "/accounts/new", method = RequestMethod.POST)
-		public ModelAndView createAccount(@Valid @ModelAttribute(name="user") User user, BindingResult bindingResult) {
-			
-			if (bindingResult.hasErrors()) {
-				ModelAndView model = new ModelAndView("signup");
-				
-				return model;
-	        }
+public class SecurityController {
+    @Autowired
+    private UserMetier userMetier;
 
-			try {
-				String rawPassword = user.getPassword();
-				String encpsw = passwordEncoder.encode(rawPassword);
-				user.setPassword(encpsw);
-				userMetier.ajouterUser(user);
-				return new ModelAndView("login");
-			} catch (Exception e) {
-				ModelAndView model = new ModelAndView("signup");
-				model.addObject("user", user);
-				model.addObject("message", e.getMessage());
-				return model;
-			}
-			
-			
-			
-			}
-		
-			
-	
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @RequestMapping(value = {"/",}, method = RequestMethod.GET)
+    public String home() {
+
+        return "home";
+    }
+
+    @RequestMapping(value = {"/home",}, method = RequestMethod.GET)
+    public String homeurl() {
+
+        return "redirect:/";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(Model model) {
+        return "login";
+    }
+
+    @RequestMapping(value = "/accounts/new", method = RequestMethod.GET)
+    public ModelAndView createAccountForm() {
+
+        return new ModelAndView("signup", "user", new User());
+    }
+
+    @RequestMapping(value = "/accounts/new", method = RequestMethod.POST)
+    public ModelAndView createAccount(@Valid @ModelAttribute(name = "user") User user, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            ModelAndView model = new ModelAndView("signup");
+
+            return model;
+        }
+
+        try {
+            String rawPassword = user.getPassword();
+            String encpsw = passwordEncoder.encode(rawPassword);
+            user.setPassword(encpsw);
+            userMetier.ajouterUser(user);
+            return new ModelAndView("login");
+        } catch (Exception e) {
+            ModelAndView model = new ModelAndView("signup");
+            model.addObject("user", user);
+            model.addObject("message", e.getMessage());
+            return model;
+        }
+
+
+    }
+
 
 }

@@ -12,11 +12,11 @@ import com.enit.entites.Simulation;
 import com.enit.entites.SimulationUnitaire;
 import com.enit.entites.SimulationUnitaireKey;
 
-public interface SimulationUnitaireRepository extends MongoRepository<SimulationUnitaire,SimulationUnitaireKey> {
-	@Query("{ 'id.idSimulation' : ?0 }")
-	public Page<SimulationUnitaire> FindSimulationUnitaireBySimulation( @Param(value="idSimulation") String idSimulation,Pageable pageable);
-    
-	@Query("{ 'id.idSimulation' : ?0 }")
-	public List<SimulationUnitaire> FindSimulationUnitaireBySimulation( @Param(value="idSimulation") String idSimulation);
+public interface SimulationUnitaireRepository extends MongoRepository<SimulationUnitaire, SimulationUnitaireKey> {
+    @Query("{ 'id.idSimulation' : ?0 }")
+    public Page<SimulationUnitaire> FindSimulationUnitaireBySimulation(@Param(value = "idSimulation") String idSimulation, Pageable pageable);
+
+    @Query("{ 'id.idSimulation' : ?0 }")
+    public List<SimulationUnitaire> FindSimulationUnitaireBySimulation(@Param(value = "idSimulation") String idSimulation);
 
 }

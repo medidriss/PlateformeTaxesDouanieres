@@ -5,6 +5,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import com.enit.entites.Nomenclature;
 import com.enit.entites.PaysOrigine;
 
-public interface PaysOrigineRepository extends MongoRepository<PaysOrigine,String> {
+public interface PaysOrigineRepository extends MongoRepository<PaysOrigine, String> {
 
 }

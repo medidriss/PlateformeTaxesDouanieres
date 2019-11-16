@@ -8,8 +8,8 @@ import org.springframework.data.repository.query.Param;
 
 import com.enit.entites.Nomenclature;
 
-public interface NomenclatureRepository extends MongoRepository<Nomenclature,String> {
-	@Query("{ 'designation' : ?0 }")
-	public List<Nomenclature> findNomenclatureByDesignation( @Param(value="mc") String mc);
+public interface NomenclatureRepository extends MongoRepository<Nomenclature, String> {
+    @Query("{ 'designation' : ?0 }")
+    public List<Nomenclature> findNomenclatureByDesignation(@Param(value = "mc") String mc);
 
 }

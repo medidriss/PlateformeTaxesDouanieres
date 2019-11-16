@@ -14,20 +14,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Document(collection="PaysOrigine")
+@Document(collection = "PaysOrigine")
 @Data
 @AllArgsConstructor
 public class PaysOrigine implements Serializable {
-  /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-public static long getSerialversionuid() {
-	return serialVersionUID;
-}
-  @Id
-  @NotNull
-  @Size(min=2,max=20)
-  private String nomPays ;
-  private  double droitDouane;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    @Id
+    @NotNull
+    @Size(min = 2, max = 20)
+    private String nomPays;
+    private double droitDouane;
 }

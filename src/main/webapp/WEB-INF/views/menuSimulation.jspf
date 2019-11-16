@@ -1,24 +1,24 @@
-<%@ include file="taglibs.jspf"%>
+<%@ include file="taglibs.jspf" %>
 
 
+<nav class="navbar navbar-inverse navbar-fixed-top" style="width : auto;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">S T D</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="ajouterSimulation">Ajouter Simulation</a></li>
+            <li><a href="mesSimulations">Mes Simulations</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <sec:authorize access="isAuthenticated()">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> <sec:authentication property="name"/>
+                </a></li>
 
-<nav class="navbar navbar-inverse navbar-fixed-top" style="width : auto;"  >
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">S T D</a>
+            </sec:authorize>
+            <li><a href="/login?logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="ajouterSimulation">Ajouter Simulation</a></li>
-      <li><a href="mesSimulations">Mes Simulations</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-   <sec:authorize access="isAuthenticated()">
-     <li><a href="#"><span class="glyphicon glyphicon-user"></span> <sec:authentication property="name"/> </a></li>
-   
-</sec:authorize>
-      <li><a href="/login?logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-    </ul>
-  </div>
 </nav>
 <br>
 <br>
